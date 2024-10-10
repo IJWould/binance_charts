@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lightweight Charts Example</title>
+    <script type="module" src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+
+    <div id="chart0"></div>
+
+    <div id="chart_setting">
+        <img src="https://www.amritahospitals.org/_next/image?url=https%3A%2F%2Fadmin.amritahospitals.org%2Fsites%2Fdefault%2Ffiles%2F2023-05%2Ficon_0.png&w=3840&q=75" alt="asd" height="35px" width="35px">
+    </div>
+
+<!--
+    <div id="chart1"></div>
+    <div id="chart2"></div>
+    <div id="chart3"></div> -->
+    <script type="module" src="{{ url_for('static', filename='candle_script.js') }}"></script>
+
+
+
+    <div class="charts" id="block">
+        <div class="symbol">
+            <label for="currency-select">pairs</label>
+            <form method="post" name="select" class="test">
+                <!-- <input list="pairs"/>
+                <datalist id="pairs"> -->
+                <select name="pair_select" id="1" class="pair_select">
+                    {% for pair in tickers %}
+                        <option value="{{ pair.symbol }}" class="pair">{{ pair.symbol }}</option>
+                    {% endfor %}
+                </select>
+
+                <!-- </datalist> -->
+            </form>
+
+
+
+        </div>
+
+        <div class="timeframe">
+            <label for="timeframe-select">frame</label>
+            <form method="post">
+                <select id="timeframe-select" class="time">
+                    <option value="1m">1m</option>
+                    <option value="5m">5m</option>
+                    <option value="15m">15m</option>
+                    <option value="1h">1h</option>
+                    <option value="4h">4h</option>
+                    <option value="12h">12h</option>
+                    <option value="1d">1d</option>
+                    <option value="1w">1w</option>
+                    <option value="1M">1M</option>
+                </select>
+            </form>
+
+        </div>
+    </div>
+
+
+    <button id="LogButton">Logarithmic</button>
+    <button id="NormalButton">Normal</button>
+
+
+</body>
+</html>
